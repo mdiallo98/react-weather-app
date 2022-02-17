@@ -5,13 +5,12 @@ function WeatherContainer() {
   const [weather, Getweather] = useState();
   const [searchData, SetSearch] = useState('');
   const apikey = '0e70b0ad034bbdb765793eff6eec2313';
-  const workingKey =
-    'http://api.weatherapi.com/v1/current.json?key=28ca387252884dfbbf7102312221502&q=New York &aqi=no';
-
+  const CorsBypass_Url = 'https://cors-anywhere.herokuapp.com/corsdemo';
+  const workingKey = 'https://www.metaweather.com/api/location/search/?query=';
+  const hold = `${CorsBypass_Url}${workingKey}${searchData}`;
   useEffect(() => {
     fetch(
-      `  http://api.weatherapi.com/v1/current.json?key=28ca387252884dfbbf7102312221502&q=New York &aqi=no
-        `
+      `${CorsBypass_Url}https://www.metaweather.com/api/location/search/?query=san`
     )
       .then((response) => response.json())
       .then((data) => {
